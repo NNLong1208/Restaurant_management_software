@@ -8,3 +8,4 @@ C:\Users\nguye\Desktop\study_online\he2022\Restaurant_management_software\Restau
 C:\Users\nguye\Desktop\study_online\he2022\Restaurant_management_software\Restaurant_management_software\obj\Debug\Restaurant_management_software.csproj.CoreCompileInputs.cache
 C:\Users\nguye\Desktop\study_online\he2022\Restaurant_management_software\Restaurant_management_software\obj\Debug\Restaurant_management_software.exe
 C:\Users\nguye\Desktop\study_online\he2022\Restaurant_management_software\Restaurant_management_software\obj\Debug\Restaurant_management_software.pdb
+C:\Users\nguye\Desktop\study_online\he2022\Restaurant_management_software\Restaurant_management_software\obj\Debug\Restaurant_management_software.FrmAdmin.resources
