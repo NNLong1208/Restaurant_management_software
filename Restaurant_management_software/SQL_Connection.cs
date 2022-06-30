@@ -73,5 +73,18 @@ namespace Restaurant_management_software
             }
             return txt;
         }
+
+        public List<string> GetTenLoai(string sql)
+        {
+            List<string> results = new List<string>();
+            command = new SqlCommand(sql, connection);
+            SqlDataReader res = command.ExecuteReader();
+            while (res.Read() == true)
+            {
+                string txt = (string)res["TenLoai"].ToString();
+                results.Add(txt);
+            }
+            return results;
+        }
     }
 }

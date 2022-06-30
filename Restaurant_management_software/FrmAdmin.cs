@@ -47,6 +47,16 @@ namespace Restaurant_management_software
             DataTable dta = new DataTable();
             dta = connecter.getData("select * from NhanVien order by MaNV");
             dataGridView1.DataSource = dta;
+
+
+        }
+
+        public void FillData()
+        {
+            List<string> results = connecter.GetTenLoai("select TenLoai from LoaiThucDon");
+            results.ForEach(item => cbTenLoai.Items.Add(item));
+            cbTenLoai.SelectedIndex = 0;
+
         }
 
         public void TableThucDon()
@@ -61,8 +71,8 @@ namespace Restaurant_management_software
             lbMaNhanVien.DataBindings.Clear();
             lbMaNhanVien.DataBindings.Add("Text", dataGridView1.DataSource, "MaNV");
 
-            txtMaNhanVien.DataBindings.Clear();
-            txtMaNhanVien.DataBindings.Add("Text", dataGridView1.DataSource, "MaNV");
+            lbMaNhanVien.DataBindings.Clear();
+            lbMaNhanVien.DataBindings.Add("Text", dataGridView1.DataSource, "MaNV");
 
             txtHoVaTen.DataBindings.Clear();
             txtHoVaTen.DataBindings.Add("Text", dataGridView1.DataSource, "HoTen");
@@ -96,13 +106,13 @@ namespace Restaurant_management_software
             txtGia.DataBindings.Clear();
             txtGia.DataBindings.Add("Text", dataGridView2.DataSource, "Gia");
 
-            txtTenLoai.DataBindings.Clear();
-            txtTenLoai.DataBindings.Add("Text", dataGridView2.DataSource, "TenLoai");
+            //txtTenLoai.DataBindings.Clear();
+            //txtTenLoai.DataBindings.Add("Text", dataGridView2.DataSource, "TenLoai");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            txtMaNhanVien.Clear();
+            lbMaNhanVien.Text = "None";
             txtHoVaTen.Clear();
             txtChucVu.Clear();
             txtTenDangNhap.Clear();
@@ -145,7 +155,7 @@ namespace Restaurant_management_software
 
         private void bt_nvXoa_Click(object sender, EventArgs e)
         {
-            String sql = "delete from NhanVien where MaNV = " + txtMaNhanVien.Text;
+            String sql = "delete from NhanVien where MaNV = " + lbMaNhanVien.Text;
             connecter.excute(sql);
             TableNhanVien();
             ShowDataNhanVien();
@@ -155,7 +165,7 @@ namespace Restaurant_management_software
         {
             String sql = "update NHANVIEN set HoTEN = N'" + txtHoVaTen.Text + "', " + "NgaySinh = '" + dtNgaySinh.Value.ToString("MM/dd/yyyy") + "', "
                 + "TenDN = '" + txtTenDangNhap.Text + "', " + "MatKhau = '" + txtMatKhau.Text + "', " + "ChucVu = N'" + txtChucVu.Text + "'" + 
-                "where MaNV = " + txtMaNhanVien.Text;
+                "where MaNV = " + lbMaNhanVien.Text;
             connecter.excute(sql);
             TableNhanVien();
             ShowDataNhanVien();
@@ -173,6 +183,7 @@ namespace Restaurant_management_software
 
         private void button6_Click(object sender, EventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine(cbTenLoai.SelectedIndex > -1);
             txtTenMonAn.Clear();
             //txtTenLoai.Clear();
             txtDonViTinh.Clear();
@@ -209,7 +220,7 @@ namespace Restaurant_management_software
             String sql_get_max_id = "Select max(MaThucDon) as max_number from ThucDon";
             String max_id = connecter.GetMaxId(sql_get_max_id);
 
-            String sql_get_id = "select MaLoai from LoaiThucDon where TenLoai = N'" + txtTenLoai.Text + "'";
+            String sql_get_id = "select MaLoai from LoaiThucDon where TenLoai = N'" + cbTenLoai.SelectedItem + "'";
             String id = connecter.GetMaLoai(sql_get_id);
 
             String sql = "insert into ThucDon values(" + id + ", N'" + txtTenMonAn.Text + "', N'" + txtDonViTinh.Text + "')";
@@ -227,6 +238,7 @@ namespace Restaurant_management_software
             TableThucDon();
             ShowDataNhanVien();
             ShowDataThucDon();
+            FillData();
 
         }
 
@@ -237,9 +249,9 @@ namespace Restaurant_management_software
             {
                 sql += " and ThucDon.TenThucDon = N" + "'" + txtTenMonAn.Text + "'";
             }
-            if (txtTenLoai.Text.Length != 0)
+            if (cbTenLoai.SelectedIndex > -1)
             {
-                sql += " and LoaiThucDon.TenLoai = N" + "'" + txtTenLoai.Text + "'";
+                sql += " and LoaiThucDon.TenLoai = N" + "'" + cbTenLoai.SelectedItem + "'";
             }
             if (txtDonViTinh.Text.Length != 0)
             {

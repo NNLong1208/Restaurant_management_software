@@ -42,7 +42,6 @@ namespace Restaurant_management_software
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
             this.txtHoVaTen = new System.Windows.Forms.TextBox();
-            this.txtMaNhanVien = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -60,7 +59,6 @@ namespace Restaurant_management_software
             this.bt_tdSua = new System.Windows.Forms.Button();
             this.bt_tdThem = new System.Windows.Forms.Button();
             this.txtTenMonAn = new System.Windows.Forms.TextBox();
-            this.txtTenLoai = new System.Windows.Forms.TextBox();
             this.txtDonViTinh = new System.Windows.Forms.TextBox();
             this.txtGia = new System.Windows.Forms.TextBox();
             this.dtNgayApDung = new System.Windows.Forms.DateTimePicker();
@@ -71,6 +69,7 @@ namespace Restaurant_management_software
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.cbTenLoai = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -102,7 +101,6 @@ namespace Restaurant_management_software
             this.tabNhanVien.Controls.Add(this.txtMatKhau);
             this.tabNhanVien.Controls.Add(this.txtTenDangNhap);
             this.tabNhanVien.Controls.Add(this.txtHoVaTen);
-            this.tabNhanVien.Controls.Add(this.txtMaNhanVien);
             this.tabNhanVien.Controls.Add(this.label7);
             this.tabNhanVien.Controls.Add(this.label6);
             this.tabNhanVien.Controls.Add(this.label5);
@@ -121,7 +119,7 @@ namespace Restaurant_management_software
             // lbMaNhanVien
             // 
             this.lbMaNhanVien.AutoSize = true;
-            this.lbMaNhanVien.Location = new System.Drawing.Point(140, 15);
+            this.lbMaNhanVien.Location = new System.Drawing.Point(140, 60);
             this.lbMaNhanVien.Name = "lbMaNhanVien";
             this.lbMaNhanVien.Size = new System.Drawing.Size(42, 17);
             this.lbMaNhanVien.TabIndex = 6;
@@ -224,13 +222,6 @@ namespace Restaurant_management_software
             this.txtHoVaTen.Size = new System.Drawing.Size(200, 22);
             this.txtHoVaTen.TabIndex = 3;
             // 
-            // txtMaNhanVien
-            // 
-            this.txtMaNhanVien.Location = new System.Drawing.Point(143, 55);
-            this.txtMaNhanVien.Name = "txtMaNhanVien";
-            this.txtMaNhanVien.Size = new System.Drawing.Size(200, 22);
-            this.txtMaNhanVien.TabIndex = 3;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -310,6 +301,7 @@ namespace Restaurant_management_software
             // tabThucDon
             // 
             this.tabThucDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(217)))), ((int)(((byte)(247)))));
+            this.tabThucDon.Controls.Add(this.cbTenLoai);
             this.tabThucDon.Controls.Add(this.txtMaThucDon);
             this.tabThucDon.Controls.Add(this.label14);
             this.tabThucDon.Controls.Add(this.button6);
@@ -318,7 +310,6 @@ namespace Restaurant_management_software
             this.tabThucDon.Controls.Add(this.bt_tdSua);
             this.tabThucDon.Controls.Add(this.bt_tdThem);
             this.tabThucDon.Controls.Add(this.txtTenMonAn);
-            this.tabThucDon.Controls.Add(this.txtTenLoai);
             this.tabThucDon.Controls.Add(this.txtDonViTinh);
             this.tabThucDon.Controls.Add(this.txtGia);
             this.tabThucDon.Controls.Add(this.dtNgayApDung);
@@ -417,13 +408,6 @@ namespace Restaurant_management_software
             this.txtTenMonAn.Size = new System.Drawing.Size(200, 22);
             this.txtTenMonAn.TabIndex = 3;
             // 
-            // txtTenLoai
-            // 
-            this.txtTenLoai.Location = new System.Drawing.Point(175, 100);
-            this.txtTenLoai.Name = "txtTenLoai";
-            this.txtTenLoai.Size = new System.Drawing.Size(200, 22);
-            this.txtTenLoai.TabIndex = 3;
-            // 
             // txtDonViTinh
             // 
             this.txtDonViTinh.Location = new System.Drawing.Point(175, 146);
@@ -515,6 +499,14 @@ namespace Restaurant_management_software
             this.dataGridView2.Size = new System.Drawing.Size(1078, 239);
             this.dataGridView2.TabIndex = 0;
             // 
+            // cbTenLoai
+            // 
+            this.cbTenLoai.FormattingEnabled = true;
+            this.cbTenLoai.Location = new System.Drawing.Point(175, 98);
+            this.cbTenLoai.Name = "cbTenLoai";
+            this.cbTenLoai.Size = new System.Drawing.Size(200, 24);
+            this.cbTenLoai.TabIndex = 6;
+            // 
             // FrmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -550,7 +542,6 @@ namespace Restaurant_management_software
         private System.Windows.Forms.TextBox txtChucVu;
         private System.Windows.Forms.TextBox txtTenDangNhap;
         private System.Windows.Forms.TextBox txtHoVaTen;
-        private System.Windows.Forms.TextBox txtMaNhanVien;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtNgaySinh;
         private System.Windows.Forms.TextBox txtMatKhau;
@@ -563,7 +554,6 @@ namespace Restaurant_management_software
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DateTimePicker dtNgayApDung;
         private System.Windows.Forms.TextBox txtTenMonAn;
-        private System.Windows.Forms.TextBox txtTenLoai;
         private System.Windows.Forms.TextBox txtDonViTinh;
         private System.Windows.Forms.TextBox txtGia;
         private System.Windows.Forms.Button bt_nvTimKiem;
@@ -579,5 +569,6 @@ namespace Restaurant_management_software
         private System.Windows.Forms.Label lbMaNhanVien;
         private System.Windows.Forms.Label txtMaThucDon;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cbTenLoai;
     }
 }
